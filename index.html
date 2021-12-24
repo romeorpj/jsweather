@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Weather App - JS</title>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="container">
+            <div class="wrapper">
+			<nav class="menu">
+				
+                    <div class="menu__hamburger">
+                        <div ></div>
+                        <div ></div>
+                        <div ></div>
+                    </div>
+					<ul class="menu__list">
+						<li><a href="index.html">Home</a></li>
+
+						<li><a href="calculator.html">Calculator</a></li>
+						<li><a href="about.html">About</a></li>
+					</ul>
+				
+			</nav>
+			<section class="headline">
+                <p>Welcome back,</p>
+                <h1>Let's check the weather</h1>
+            </section>
+			<input type="text" name="location-search" id="location-search" aria-required="true" placeholder="city, state or zipcode">
+            </div>
+            <main class="weather-today">
+                <div class="temp-right-now">
+                    <p>return city</h3>
+                <p>
+                    53&deg;
+                </p>
+                </div>
+               
+                <div class="weather-today__extras">
+                <p>Feels like</p>
+                <p>High</p>
+                <p>Low</p>
+                </div>
+                <span>it's sunny</span>
+            </main>
+            <section class="forecast">
+                <p>3 day forecast</p>
+                <div class="weather-day">
+ <img src="" alt="weather">
+ <p>Hi: <span class="weather-day__hi"></span></p>
+ <p>Lo: <span class="weather-day__lo"></span></p>
+ 
+                </div>
+              
+            </section>
+		</div>
+
+		<script src="app.js"></script>
+	</body>
+</html>
