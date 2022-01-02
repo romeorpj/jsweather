@@ -5,3 +5,13 @@
 #To-Do
 
 - make a page that calculates weather from F to C and vice versa
+
+#Notes:
+
+- To make content side scroll with no scrollbar
+  -- parent div overflow hidden
+  -- self, overflow-x: auto;
+
+#Help Topics
+
+- Still need to perfect side scroll css and scroll gradient

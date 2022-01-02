@@ -6,56 +6,118 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Weather App - JS</title>
 		<link rel="stylesheet" href="style.css" />
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+			integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+			crossorigin="anonymous"
+		/>
 	</head>
 	<body>
 		<div class="container">
-            <div class="wrapper">
-			<nav class="menu">
-				
-                    <div class="menu__hamburger">
-                        <div ></div>
-                        <div ></div>
-                        <div ></div>
-                    </div>
+			<div class="wrapper">
+				<nav class="menu">
+					<div class="menu__hamburger">
+						<div class="lines"></div>
+						<div class="lines"></div>
+						<div class="lines"></div>
+					</div>
 					<ul class="menu__list">
 						<li><a href="index.html">Home</a></li>
 
 						<li><a href="calculator.html">Calculator</a></li>
 						<li><a href="about.html">About</a></li>
 					</ul>
-				
-			</nav>
-			<section class="headline">
-                <p>Welcome back,</p>
-                <h1>Let's check the weather</h1>
-            </section>
-			<input type="text" name="location-search" id="location-search" aria-required="true" placeholder="city, state or zipcode">
-            </div>
-            <main class="weather-today">
-                <div class="temp-right-now">
-                    <p>return city</h3>
-                <p>
-                    53&deg;
-                </p>
-                </div>
-               
-                <div class="weather-today__extras">
-                <p>Feels like</p>
-                <p>High</p>
-                <p>Low</p>
-                </div>
-                <span>it's sunny</span>
-            </main>
-            <section class="forecast">
-                <p>3 day forecast</p>
-                <div class="weather-day">
- <img src="" alt="weather">
- <p>Hi: <span class="weather-day__hi"></span></p>
- <p>Lo: <span class="weather-day__lo"></span></p>
- 
-                </div>
-              
-            </section>
+				</nav>
+				<section class="headline">
+					<p>Welcome back,</p>
+					<h1>Let's check the weather</h1>
+				</section>
+				<label class="input-placeholder" for="location-search">
+					*Enter city, state or zipcode
+				</label>
+				<div class="menu__input-wrapper">
+					<!-- <input type="text" name="location-search" id="location-search" aria-required="true" placeholder="city, state or zipcode"> -->
+					<input
+						type="text"
+						name="location-search"
+						id="location-search"
+						aria-required="true"
+					/>
+					<i class="fas fa-search"></i>
+				</div>
+				<main class="weather-today">
+					<img src="./images/leaf-svgrepo-com.svg" alt="leaf" class="leaf" />
+					<div class="temp-right-now">
+						<p class="weather-today__city">return city</p>
+						<span class="weather-today__temperature">553&deg;</span>
+					</div>
+
+					<div class="weather-today__extras">
+						<p>Feels Like: <span class="feels-like extras-meta">50</span></p>
+						<p>High: <span class="high-temp extras-meta">50</span></p>
+						<p>Low: <span class="low-temp extras-meta">50</span></p>
+					</div>
+				</main>
+				<p class="five-day-forecast">5 Day Forecast</p>
+				<div class="forecast-wrapper">
+					<section class="forecast">
+						<div class="weather-day">
+							<img src="/images/07-sun.svg" alt="weather" />
+							<p>
+								Hi: <span class="weather-day__hi weather-day__common">550</span>
+							</p>
+							<p>
+								Lo: <span class="weather-day__lo weather-day__common">55</span>
+							</p>
+						</div>
+					</section>
+					<section class="forecast">
+						<div class="weather-day">
+							<img src="/images/07-sun.svg" alt="weather" />
+							<p>
+								Hi: <span class="weather-day__hi weather-day__common">50</span>
+							</p>
+							<p>
+								Lo: <span class="weather-day__lo weather-day__common">50</span>
+							</p>
+						</div>
+					</section>
+					<section class="forecast">
+						<div class="weather-day">
+							<img src="/images/07-sun.svg" alt="weather" />
+							<p>
+								Hi: <span class="weather-day__hi weather-day__common">50</span>
+							</p>
+							<p>
+								Lo: <span class="weather-day__lo weather-day__common">50</span>
+							</p>
+						</div>
+					</section>
+					<section class="forecast">
+						<div class="weather-day">
+							<img src="/images/07-sun.svg" alt="weather" />
+							<p>
+								Hi: <span class="weather-day__hi weather-day__common">50</span>
+							</p>
+							<p>
+								Lo: <span class="weather-day__lo weather-day__common">50</span>
+							</p>
+						</div>
+					</section>
+					<section class="forecast">
+						<div class="weather-day">
+							<img src="/images/07-sun.svg" alt="weather" />
+							<p>
+								Hi: <span class="weather-day__hi weather-day__common">50</span>
+							</p>
+							<p>
+								Lo: <span class="weather-day__lo weather-day__common">50</span>
+							</p>
+						</div>
+					</section>
+				</div>
+			</div>
 		</div>
 
 		<script src="app.js"></script>
