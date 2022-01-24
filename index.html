@@ -18,9 +18,7 @@
 			<div class="wrapper">
 				<nav class="menu">
 					<div class="menu__hamburger">
-						<div class="lines"></div>
-						<div class="lines"></div>
-						<div class="lines"></div>
+						<div class="menu__hamburger-lines"></div>
 					</div>
 					<ul class="menu__list">
 						<li><a href="index.html">Home</a></li>
@@ -33,19 +31,20 @@
 					<p>Welcome back,</p>
 					<h1>Let's check the weather</h1>
 				</section>
-				<label class="input-placeholder" for="location-search">
-					*Enter city, state or zipcode
+				<label class="input-placeholder" for="location-input">
+					*Enter city or click <i class="fas fa-map-marker-alt"></i> for
+					location lookup
 				</label>
-				<div class="menu__input-wrapper">
+				<form class="menu__input-wrapper">
 					<!-- <input type="text" name="location-search" id="location-search" aria-required="true" placeholder="city, state or zipcode"> -->
 					<input
 						type="text"
-						name="location-search"
-						id="location-search"
+						name="location-input"
+						id="location-input"
 						aria-required="true"
 					/>
 					<i class="fas fa-search"></i>
-				</div>
+				</form>
 				<main class="weather-today">
 					<img src="./images/leaf-svgrepo-com.svg" alt="leaf" class="leaf" />
 					<div class="temp-right-now">

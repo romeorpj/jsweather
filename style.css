@@ -98,7 +98,7 @@ select {
 }
 .container {
 	width: 100%;
-	max-width: 1200px;
+
 	height: 100vh;
 	background: var(--med-blue);
 	overflow: hidden;
@@ -107,6 +107,7 @@ select {
 .wrapper {
 	width: 85%;
 	/* height: 100vh; */
+	max-width: 420px;
 	margin: 0 auto;
 	padding-top: 5%;
 }
@@ -122,33 +123,64 @@ select {
 	overflow: hidden;
 }
 .menu__hamburger {
+	position: relative;
 	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+	z-index: 1;
+}
+.menu__hamburger-lines,
+.menu__hamburger-lines::before,
+.menu__hamburger-lines::after {
+	/* display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-	align-items: center;
-	width: 17px;
-	height: 12px;
+	align-items: center; */
+	height: 0.2rem;
+	width: 1.5rem;
+	background-color: var(--green);
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
 }
 
-.menu__hamburger div {
-	height: 3px;
-	width: 17px;
-
-	background-color: var(--green);
-	border-radius: 999px;
+.menu__hamburger-lines::before,
+.menu__hamburger-lines::after {
+	content: "";
+	position: absolute;
+}
+.menu__hamburger-lines::before {
+	transform: translateY(-5px);
+}
+.menu__hamburger-lines::after {
+	content: "";
+	transform: translateY(5px);
+}
+.menu__hamburger-lines::before.open {
+	transform: rotate(-45deg);
+}
+.menu__hamburger-lines::after.open {
+	content: "";
+	transform: rotate(45deg);
 }
 
 .menu__list {
 	margin-left: auto;
 	width: 100%;
 	display: flex;
-	transform: translateX(-100%);
+	transform: translateX(100%);
 	justify-content: space-evenly;
 	align-items: center;
-	transition: all 0.3s ease-in-out;
+	transition: all 0.3s cubic-bezier(1, 0.63, 0, 0.47);
+	opacity: 0;
+
+	/* cubic-bezier(1, 0.63, 0, 0.47) */
 }
 .menu__list.open {
 	transform: translateX(0px);
+	opacity: 1;
 }
 
 .menu__list li a {
@@ -165,7 +197,7 @@ select {
 
 .headline {
 	width: 100%;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
 .headline p {
 	font-size: 1.4rem;
@@ -270,8 +302,11 @@ input:active {
 	z-index: 2;
 	display: none;
 }
-
-/* **3 Day Forecast** */
+.fa-map-marker-alt {
+	color: var(--green);
+	font-size: 2.5rem;
+}
+/* **5 Day Forecast** */
 .forecast-wrapper {
 	width: 100%;
 	margin: 0 auto;
