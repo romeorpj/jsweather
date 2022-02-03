@@ -15,3 +15,8 @@
 #Help Topics
 
 - Still need to perfect side scroll css and scroll gradient
+
+#Resources
+
+- Openweather Api - https://openweathermap.org/api
+- Geocoding Api - https://www.bigdatacloud.com/geocoding-apis

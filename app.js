@@ -1,3 +1,5 @@
+"use strict";
+
 let hamburger = document.querySelector(".menu__hamburger");
 let menuList = document.querySelector(".menu__list");
 let locationInput = document.querySelector("#location-input");
@@ -7,6 +9,8 @@ let extrasFeels = document.querySelector(".feels-like");
 let extrasHigh = document.querySelector(".high-temp");
 let extrasLow = document.querySelector(".low-temp");
 const geoMarker = document.querySelector(".fa-map-marker-alt");
+let forecastDayHi = document.querySelector(".forecast-day__hi");
+let forcastDayLo = document.querySelector(".forecast-day__lo");
 // just wanted to use a random object... because I was bored
 const api = {
 	apiKey: "74a6a74158e6ab0a7c7537bafef62835",
@@ -89,6 +93,7 @@ let geoBtnApi = async (cityGeoUpdateParam, lat, long) => {
 			// `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=imperial&exclude=minutely,alerts,hourly&appid=${api.apiKey}`
 		);
 		let data = await response.json();
+
 		mainTemp(cityGeoUpdateParam, Math.round(data.main.temp));
 		extras(
 			Math.round(data.main.feels_like),
@@ -122,10 +127,10 @@ let cityApiCall = async (lat, long) => {
 		// console.log(cityApiCallData);
 		let cityGeoUpdate = city.textContent;
 		cityGeoUpdate = cityApiCallData.locality;
-		// let cityApiCallDataName = cityApiCallData.city;
-		// console.log(cityApiCallData.city);
-		// console.log(cityGeoUpdate);
-		// city.textContent = cityGeoUpdate;
+
+		// provides lat and long for 10 forcast api
+		forecastFunc(lat, long);
+
 		geoBtnApi(cityGeoUpdate, lat, long);
 		// console.log(mainTemp(cityGeoUpdate));
 		// console.log(mainTemp);
@@ -133,21 +138,24 @@ let cityApiCall = async (lat, long) => {
 		throw new Error(console.log(e));
 	}
 };
-// import axios
-// research axios
-// research how to separate city and state into two variables
-//
 
-// auto update the weather based on longitude and lattitude button click
-// update weather based on city, state, zipcode and country code
+// *** *** *** 5 DAY FORECAST CONSTRUCTOR*** *** ***
 
-// activate the enter key
+let forecastFunc = async (lat, long) => {
+	try {
+		let resp = await fetch(
+			`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=hourly,minutely&units=imperial&appid=${api.apiKey}`
+		);
 
-//
+		let respData = await resp.json();
+		console.log(respData);
+	} catch (e) {
+		throw new Error(console.log(e));
+	}
+};
 
-// console.log(weatherApi("cleveland"));
-
-// console.log(response);
-// document.addEventListener("DOMContentLoaded", )
-
-// API to populate city name
+class Forecast {
+	constructor() {
+		this.high = forecastDayHi;
+	}
+}

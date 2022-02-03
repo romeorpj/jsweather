@@ -362,7 +362,7 @@ input:active {
 	margin-bottom: 10px;
 }
 
-.weather-day {
+.forecast-day {
 	background: var(--lt-blue);
 	border-radius: 15px 15px 15px 15px;
 	/* border-radius: 15px 15px 0 0; */
@@ -371,12 +371,12 @@ input:active {
 
 	padding: 10px;
 }
-.weather-day p {
+.forecast-day p {
 	color: var(--wht);
 	font-weight: 300;
 }
 
-.weather-day__common {
+.forecast-day__common {
 	color: var(--green);
 	font-weight: 700;
 }
