@@ -155,7 +155,8 @@ let forecastFunc = async (lat, long) => {
 };
 
 class Forecast {
-	constructor() {
-		this.high = forecastDayHi;
+	constructor(forecastFunc) {
+		this.forecastDayHi = forecastFunc.current.cloud;
 	}
 }
+newForecast = new Car("Ford");
