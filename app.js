@@ -110,7 +110,7 @@ const successCall = (position) => {
 	let long = position.coords.longitude;
 	console.log(lat, long);
 	// apiCity = locationInput.value;
-
+	forecastFunc(lat, long);
 	cityApiCall(lat, long);
 };
 const errorCall = () => {
@@ -129,7 +129,7 @@ let cityApiCall = async (lat, long) => {
 		cityGeoUpdate = cityApiCallData.locality;
 
 		// provides lat and long for 10 forcast api
-		forecastFunc(lat, long);
+
 
 		geoBtnApi(cityGeoUpdate, lat, long);
 		// console.log(mainTemp(cityGeoUpdate));
@@ -148,7 +148,14 @@ let forecastFunc = async (lat, long) => {
 		);
 
 		let respData = await resp.json();
-		console.log(respData);
+		console.log(respData.daily);
+		let forecast8Days = respData.daily;
+		//daily returns the 8 day forecast
+		//day 0 is todays high and low date
+		//figure out how to have the high and low sent to a new class call.
+		forecast8Days.map((element)=>{
+			console.log("test")
+		})
 	} catch (e) {
 		throw new Error(console.log(e));
 	}
