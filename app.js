@@ -11,7 +11,7 @@ let extrasLow = document.querySelector(".low-temp");
 const geoMarker = document.querySelector(".fa-map-marker-alt");
 let forecastDayHi = document.querySelector(".forecast-day__hi");
 let forcastDayLo = document.querySelector(".forecast-day__lo");
-// just wanted to use a random object... because I was bored
+// just wanted to use a random object for the api... because I was bored
 const api = {
 	apiKey: "74a6a74158e6ab0a7c7537bafef62835",
 };
@@ -39,10 +39,6 @@ locationInput.addEventListener("keydown", function (e) {
 				})
 				.join(" ")
 		);
-
-		// apiCity = cityApiCall();
-		// inputApi(apiCity);
-		// console.log(apiCity);
 	}
 });
 
@@ -89,8 +85,6 @@ let geoBtnApi = async (cityGeoUpdateParam, lat, long) => {
 	try {
 		let response = await fetch(
 			`http://api.openweathermap.org/data/2.5/weather?q=${cityGeoUpdateParam}&units=imperial&appid=${api.apiKey}`
-
-			// `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=imperial&exclude=minutely,alerts,hourly&appid=${api.apiKey}`
 		);
 		let data = await response.json();
 
@@ -130,7 +124,6 @@ let cityApiCall = async (lat, long) => {
 
 		// provides lat and long for 10 forcast api
 
-
 		geoBtnApi(cityGeoUpdate, lat, long);
 		// console.log(mainTemp(cityGeoUpdate));
 		// console.log(mainTemp);
@@ -148,22 +141,71 @@ let forecastFunc = async (lat, long) => {
 		);
 
 		let respData = await resp.json();
-		console.log(respData.daily);
+
 		let forecast8Days = respData.daily;
+		// console.log(forecast8Days);
 		//daily returns the 8 day forecast
 		//day 0 is todays high and low date
 		//figure out how to have the high and low sent to a new class call.
-		forecast8Days.map((element)=>{
-			console.log("test")
-		})
+
+		for (let i = 0; i <= forecast8Days.length - 1; i++) {
+			// console.log(forecast8Days[i].temp.max);
+			// console.log(forecast8Days[i].temp.min);
+			const dailyForecastObj = new DailyforecastInfo(
+				forecast8Days[i].temp.max,
+				forecast8Days[i].temp.min
+			);
+			console.log(forecast8Days);
+			console.log(dailyForecastObj);
+			console.log(typeof forecast8Days[i].temp.min);
+			// let forecastWrapper = document.querySelector(".forecast-wrapper");
+			// // creates outer forecast wrapper
+			// let newForecastSection = document.createElement("section");
+			// newForecastSection.classList.add("forecast");
+			// forecastWrapper.appendChild(newForecastSection);
+			// // creates inner forecast-day div and appends it to forecastWrapper
+			// let newForecastDay = document.createElement("div");
+			// newForecastDay.classList.add("forecast-day");
+			// newForecastSection.appendChild(newForecastDay);
+			// // Creates image
+			// let newForecastImg = document.createElement("img");
+			// newForecastImg.classList.add("new-forecast-img");
+			// newForecastImg.src = "/images/07-sun.svg";
+			// newForecastDay.appendChild(newForecastImg);
+			// // Creates Hi: p tag
+			// let newForecastParaHi = document.createElement("p");
+			// newForecastParaHi.classList.add(
+			// 	"forecast-day__hi",
+			// 	"forecast-day__common"
+			// );
+			// newForecastDay.appendChild(newForecastImg);
+			let forecast = document.querySelector(".forecast");
+			let forecastDay = document.querySelector(".forecast-day");
+			let forecastImg = document.querySelector(".forecast-img");
+			let forecastPara = document.querySelectorAll("forecast-day p");
+			let forecastSpanHi = document.querySelectorAll(".forecast-day__hi");
+
+			forecastSpanHi[i].textContent = Math.round(forecast8Days[i].temp.max);
+			console.log(Math.round(forecast8Days[i].temp.max));
+
+			let forecastSpanLo = document.querySelectorAll(".forecast-day__lo");
+			forecastSpanLo[i].textContent = Math.round(forecast8Days[i].temp.min);
+		}
 	} catch (e) {
 		throw new Error(console.log(e));
 	}
 };
 
-class Forecast {
-	constructor(forecastFunc) {
-		this.forecastDayHi = forecastFunc.current.cloud;
+class DailyforecastInfo {
+	constructor(highTempForecast, lowTempForecast) {
+		this.forecastDayHi = highTempForecast;
+		this.forecastDayLow = lowTempForecast;
 	}
 }
-newForecast = new Car("Ford");
+
+// function updateForecastContent() {
+// 	forecastDayHi.textContent = 0;
+// }
+
+// updateForecastContent();
+console.log(document.body);
